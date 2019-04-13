@@ -1,7 +1,7 @@
 {
   "name": "eoghandotio-ui",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "UI",
   "main": "./src/index.js",
   "scripts": {
