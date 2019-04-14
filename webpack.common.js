@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist"),
     publicPath: "/",
-    filename: "main.js"
+    filename: "index.js"
   },
   devtool: "source-map",
   resolve: {
@@ -62,7 +62,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "main.css"
+      filename: "index.css"
     })
   ]
 };
