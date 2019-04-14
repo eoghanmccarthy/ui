@@ -5,7 +5,6 @@ interface Props {
   type?: string;
   role?: string;
   id?: string;
-  styles?: object;
   className?: string;
   disabled?: boolean;
   isActive?: boolean;
@@ -17,13 +16,12 @@ const Button: React.FunctionComponent<Props> = ({
   type = "button",
   role = "button",
   id = undefined,
-  styles = undefined,
   className = "",
   disabled = false,
   isActive = false,
   onClick = null
 }) => {
-  const btnClass = classNames("btn", className, {
+  const _className = classNames("btn", className, {
     active: isActive,
     disabled: disabled
   });
@@ -33,9 +31,8 @@ const Button: React.FunctionComponent<Props> = ({
       type={type}
       role={role}
       id={id}
-      style={styles}
+      className={_className}
       disabled={disabled}
-      className={btnClass}
       onClick={onClick}
     >
       {children}

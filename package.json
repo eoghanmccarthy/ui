@@ -1,7 +1,7 @@
 {
   "name": "eoghandotio-ui",
   "private": false,
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "UI",
   "keywords": [
     "react",
@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/eoghanmccarthy/ui#readme",
   "peerDependencies": {
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.54",

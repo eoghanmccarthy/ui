@@ -1,18 +1,22 @@
 import React from "react";
 import { useTransition, animated } from "react-spring";
+import classNames from "classNames";
 
 interface Props {
-  children?: JSX.Element | null;
+  id?: string;
+  className?: string;
   isVisible: boolean;
-  transparent: boolean;
-  atRoot: boolean;
-  rootID: string;
-  onClick: () => void;
-  onDestroy: () => void;
+  transparent?: boolean;
+  atRoot?: boolean;
+  rootID?: string;
+  onClick?: () => void;
+  onDestroy?: () => void;
 }
 
 const ContentOverlay: React.FunctionComponent<Props> = ({
   children,
+  id = undefined,
+  className = "",
   isVisible = false,
   transparent = false,
   atRoot = false,
@@ -33,13 +37,18 @@ const ContentOverlay: React.FunctionComponent<Props> = ({
     }
   });
 
+  const _className = classNames("modal-overlay", className, {
+    active: isVisible
+  });
+
   return transitions.map(
     ({ item, key, props }) =>
       item && (
         <animated.div
           key={key}
+          id={id}
           style={transparent ? undefined : props}
-          className={"modal-overlay"}
+          className={_className}
           onClick={onClick}
         >
           {children}

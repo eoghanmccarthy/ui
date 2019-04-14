@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import classNames from "classNames";
 
-const ImageBackground = ({
+interface Props {
+  id?: string;
+  className?: string;
+  imageURL: string;
+  loadingSpinner?: boolean;
+  getSize?: () => void;
+  onClick?: () => void;
+}
+
+const ImageBackground: React.FunctionComponent<Props> = ({
   children,
-  id = "",
+  id = undefined,
+  className = "",
   imageURL = "",
   loadingSpinner = false,
-  loadingPlaceholder = false,
   getSize = null,
   onClick = null
 }) => {
   const [url, setURL] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+
+  const _className = classNames("img__background", className);
 
   useEffect(
     () => {
@@ -50,30 +61,13 @@ const ImageBackground = ({
   return (
     <div
       id={id}
-      className={`img__background`}
+      className={_className}
       style={{ backgroundImage: `url(${url})` }}
-      onClick={onClick ? onClick : null}
+      onClick={onClick}
     >
-      {loadingSpinner
-        ? !isLoaded
-          ? null
-          : children
-        : loadingPlaceholder
-          ? !isLoaded
-            ? null
-            : children
-          : children}
+      {loadingSpinner ? (!isLoaded ? null : children) : children}
     </div>
   );
 };
 
 export default ImageBackground;
-
-ImageBackground.propTypes = {
-  id: PropTypes.string,
-  imageURL: PropTypes.string,
-  loadingSpinner: PropTypes.bool,
-  loadingPlaceholder: PropTypes.bool,
-  getSize: PropTypes.func,
-  onClick: PropTypes.func
-};
