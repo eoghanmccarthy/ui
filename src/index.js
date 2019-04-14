@@ -1,3 +1,4 @@
-export { default as Button } from "./Button";
-export { default as ImageBackground } from "./ImageBackground";
-export { default as ContentOverlay } from "./ContentOverlay";
+export { default as Button } from "./button";
+export { default as ImageBackground } from "./imageBackground";
+export { default as ContentOverlay } from "./contentOverlay";
+export { default as Logo } from "./logo";
