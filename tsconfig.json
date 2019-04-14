@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "allowJs": true,
+    "lib": ["es2015", "dom"],
+    "target": "es6",
+    "jsx": "react",
+    "baseUrl": "."
+  }
+}

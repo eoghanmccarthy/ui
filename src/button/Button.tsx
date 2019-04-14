@@ -1,13 +1,23 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import classNames from "classNames";
 
-const Button = ({
+interface Props {
+  type?: string;
+  role?: string;
+  id?: string;
+  styles?: object;
+  addClass?: string;
+  disabled?: boolean;
+  isActive?: boolean;
+  onClick: () => void;
+}
+
+const Button: React.FunctionComponent<Props> = ({
   children,
   type = "button",
   role = "button",
   id = undefined,
-  styles = undefined,
+  style = undefined,
   addClass = "",
   disabled = false,
   isActive = false,
@@ -34,14 +44,3 @@ const Button = ({
 };
 
 export default Button;
-
-Button.propTypes = {
-  type: PropTypes.string,
-  role: PropTypes.string,
-  id: PropTypes.string,
-  styles: PropTypes.object,
-  addClass: PropTypes.string,
-  disabled: PropTypes.bool,
-  isActive: PropTypes.bool,
-  onClick: PropTypes.func
-};
