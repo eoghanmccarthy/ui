@@ -1,8 +1,9 @@
 import React from "react";
+import { jsx, css } from "@emotion/core";
 import classNames from "classNames";
 
 interface Props {
-  type?: string;
+  type?: 'button' | 'submit' | 'reset';
   role?: string;
   id?: string;
   className?: string;
