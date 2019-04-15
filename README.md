@@ -1,5 +1,5 @@
 # UI
 
-UI component library I use in my own projects.
+UI component library.
 
 `npm install --save eoghandotio-ui`
