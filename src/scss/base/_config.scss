@@ -10,12 +10,10 @@ $base__line-height: 1;
 
 // Webfonts
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i");
-@import url("https://fonts.googleapis.com/css?family=Shrikhand");
 
 // Font stacks
 $base__font-primary: "Roboto Mono", sans-serif;
-$base__font-secondary: "Shrikhand", sans-serif;
-// Font weight
+
 $font-weight: (
   thin: 100,
   light: 300,
@@ -24,14 +22,9 @@ $font-weight: (
   bold: 700
 );
 
-// Z-Index
-$base__z-index: 10;
+$speed: 0.3s;
 $z-index: (
   default: 0,
-  modal: (
-    $base__z-index * 10
-  ),
-  top: $base__z-index * 100
+  modal: 100,
+  top: 1000
 );
-// Transitions
-$speed: 0.3s;

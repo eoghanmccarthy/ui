@@ -23,12 +23,5 @@ $palettes: (
     base: $grey,
     dark: darken($grey, 8%),
     x-dark: darken($grey, 16%)
-  ),
-  brand: (
-    x-light: lighten($color__primary, 25%),
-    light: lighten($color__primary, 12%),
-    base: $color__primary,
-    dark: darken($color__primary, 8%),
-    x-dark: darken($color__primary, 16%)
   )
 );

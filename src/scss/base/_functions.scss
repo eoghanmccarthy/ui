@@ -1,11 +1,5 @@
 /// Functions
 
-// Breakpoint
-@function bpd($value) {
-  @return map-get($breakpoints, $value);
-}
-
-// Z-index
 @function zi($value) {
   @return map-get($z-index, $value);
 }
