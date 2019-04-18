@@ -9,9 +9,9 @@ interface Props {
   id?: string;
   className?: string;
   isVisible?: boolean;
+  disableAnim?: boolean;
   closeDialog: () => void;
   onDestroy?: () => void;
-  disableAnim?: boolean;
 }
 
 const Dialog: React.FunctionComponent<Props> = ({
@@ -19,9 +19,9 @@ const Dialog: React.FunctionComponent<Props> = ({
   id = undefined,
   className = undefined,
   isVisible = false,
+  disableAnim = false,
   closeDialog = null,
-  onDestroy = null,
-  disableAnim = false
+  onDestroy = null
 }) => {
   const [overlay, setOverlay] = useState(false);
   const transitions = useTransition(isVisible, null, {

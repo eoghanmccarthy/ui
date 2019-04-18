@@ -14,7 +14,7 @@ const path =
 const Logo: React.FunctionComponent<Props> = ({
   children,
   id = undefined,
-  className = "",
+  className = undefined,
   fill = undefined,
   onClick = null
 }) => {

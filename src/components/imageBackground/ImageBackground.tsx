@@ -13,8 +13,8 @@ interface Props {
 const ImageBackground: React.FunctionComponent<Props> = ({
   children,
   id = undefined,
-  className = "",
-  imageURL = "",
+  className = undefined,
+  imageURL,
   loadingSpinner = false,
   getSize = null,
   onClick = null

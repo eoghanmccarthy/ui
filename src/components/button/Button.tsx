@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classNames";
 
 interface Props {
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   role?: string;
   id?: string;
   className?: string;
@@ -16,10 +16,10 @@ const Button: React.FunctionComponent<Props> = ({
   type = "button",
   role = "button",
   id = undefined,
-  className = "",
+  className = undefined,
   disabled = false,
   isActive = false,
-  onClick = null
+  onClick
 }) => {
   const _className = classNames("btn", className, {
     active: isActive,

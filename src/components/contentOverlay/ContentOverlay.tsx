@@ -17,7 +17,7 @@ const ContentOverlay: React.FunctionComponent<Props> = ({
   children,
   id = undefined,
   className = "",
-  isVisible = false,
+  isVisible,
   transparent = false,
   atRoot = false,
   rootID = "app-root",
