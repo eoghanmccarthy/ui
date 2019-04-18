@@ -37,7 +37,7 @@ const ContentOverlay: React.FunctionComponent<Props> = ({
     }
   });
 
-  const _className = classNames("modal-overlay", className, {
+  const _className = classNames("content-overlay", className, {
     active: isVisible
   });
 

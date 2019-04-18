@@ -1,8 +1,8 @@
-import React, { Fragment, useState, useLayoutEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Transition, animated, config } from 'react-spring';
+import React, { Fragment, useState, useLayoutEffect } from "react";
+import { useTransition, animated, config } from "react-spring";
+import classNames from "classNames";
 
-import ContentOverlay from 'src/contentOverlay/contentOverlay';
+import ContentOverlay from "src/contentOverlay/ContentOverlay";
 //import BtnClose from 'shared/modal/closeBtn';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
   isVisible?: boolean;
   closeDialog: () => void;
   onDestroy?: () => void;
-  disableTransition?: boolean;
+  disableAnim?: boolean;
 }
 
 const Dialog: React.FunctionComponent<Props> = ({
@@ -21,9 +21,22 @@ const Dialog: React.FunctionComponent<Props> = ({
   isVisible = false,
   closeDialog = null,
   onDestroy = null,
-  disableTransition = false
+  disableAnim = false
 }) => {
   const [overlay, setOverlay] = useState(false);
+  const transitions = useTransition(isVisible, null, {
+    native: true,
+    from: { opacity: 0.75, transform: "translateY(+70px)" },
+    enter: { opacity: 1, transform: "translateY(0px)" },
+    leave: { opacity: 0.75, transform: "translateY(+70px)" },
+    onDestroyed: () => !isVisible && setOverlay(false),
+    config: config.easing,
+    immediate: disableAnim
+  });
+
+  const _className = classNames("dialog", className, {
+    active: isVisible
+  });
 
   useLayoutEffect(
     () => {
@@ -34,42 +47,25 @@ const Dialog: React.FunctionComponent<Props> = ({
 
   return (
     <Fragment>
-      <Transition
-        native
-        items={isVisible}
-        from={{ opacity: 0.75, transform: 'translateY(+70px)' }}
-        enter={{ opacity: 1, transform: 'translateY(0px)' }}
-        leave={{ opacity: 0.75, transform: 'translateY(+70px)' }}
-        config={config.easing}
-        // config={{
-        //   mass: 1,
-        //   tension: 260,
-        //   friction: 20,
-        //   clamp: true
-        // }}
-        immediate={disableTransition}
-        onDestroyed={() => !isVisible && setOverlay(false)}
-      >
-        {isVisible =>
-          isVisible &&
-          (props => (
-            <div className={'dialog'} onClick={closeDialog}>
+      {transitions.map(
+        ({ item, key, props }) =>
+          item && (
+            <div className={"dialog-overlay"} onClick={closeDialog}>
               <animated.div
                 id={id}
                 style={props}
-                className={`dialog__modal ${className}`}
+                className={_className}
                 onClick={e => e.stopPropagation()}
               >
-                <div className={'modal__gutter'}>
+                <div className={"dialog__gutter"}>
                   {closeDialog && <BtnClose onClick={closeDialog} />}
                 </div>
-                <div className={'modal__main'}>{children}</div>
-                <div className={'modal__gutter'} />
+                <div className={"dialog__main"}>{children}</div>
+                <div className={"dialog__gutter"} />
               </animated.div>
             </div>
-          ))
-        }
-      </Transition>
+          )
+      )}
       <ContentOverlay atRoot isVisible={overlay} onDestroy={onDestroy} />
     </Fragment>
   );
