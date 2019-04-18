@@ -1,0 +1,37 @@
+/// Config
+
+* {
+  box-sizing: border-box;
+}
+
+// Base font size and line height
+$base__font-size: 16px;
+$base__line-height: 1;
+
+// Webfonts
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i");
+@import url("https://fonts.googleapis.com/css?family=Shrikhand");
+
+// Font stacks
+$base__font-primary: "Roboto Mono", sans-serif;
+$base__font-secondary: "Shrikhand", sans-serif;
+// Font weight
+$font-weight: (
+  thin: 100,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  bold: 700
+);
+
+// Z-Index
+$base__z-index: 10;
+$z-index: (
+  default: 0,
+  modal: (
+    $base__z-index * 10
+  ),
+  top: $base__z-index * 100
+);
+// Transitions
+$speed: 0.3s;

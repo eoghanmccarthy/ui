@@ -1,20 +1,19 @@
-/// Buttons
+/// Button
 
 .btn {
-  //@include set-pointer();
-  position: relative;
-  overflow: hidden;
-  transition: all .25s ease;
-
-  border-width: 0;
-  padding: 0;
-  background-color: transparent;
-  outline: none;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: relative;
+  padding: 0;
+  background-color: transparent;
+  border-width: 0;
+  outline: none;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  user-select: none;
 
   .round {
     border-radius: 50%;
