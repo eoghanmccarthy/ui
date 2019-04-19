@@ -38,7 +38,8 @@ const ContentOverlay: React.FunctionComponent<Props> = ({
   });
 
   const _className = classNames("content-overlay", className, {
-    active: isVisible
+    active: isVisible,
+    transparent: transparent
   });
 
   return transitions.map(

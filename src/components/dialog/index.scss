@@ -18,7 +18,7 @@
     position: relative;
     width: 100%;
     max-width: 540px;
-    font-family: $base__font-primary:;
+    font-family: $base__font-primary;
     background: $white;
     border-radius: 6px;
 
@@ -27,14 +27,36 @@
     .dialog__gutter {
       display: flex;
       flex-direction: row-reverse;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       width: 100%;
       height: $gutter-size;
     }
 
     .dialog__main {
       padding: 0 30px;
+
+      h2 {
+        margin: 0 0 0.8em;
+        color: palette(grey, dark);
+        font-weight: 300;
+        font-size: 26px;
+        text-align: center;
+        text-transform: capitalize;
+      }
+
+      h3 {
+        color: palette(grey, xx-dark);
+        font-size: 16px;
+        text-align: center;
+      }
+
+      p {
+        margin: 0 0 2em;
+        color: palette(grey, x-dark);
+        font-size: 16px;
+        text-align: center;
+      }
     }
 
     .btn__close-modal {
@@ -45,28 +67,6 @@
       i {
         font-size: 14px;
       }
-    }
-
-    h2 {
-      margin: 0 0 0.8em;
-      color: palette(grey, dark);
-      font-weight: 300;
-      font-size: 26px;
-      text-align: center;
-      text-transform: capitalize;
-    }
-
-    h3 {
-      color: palette(grey, xx-dark);
-      font-size: 16px;
-      text-align: center;
-    }
-
-    p {
-      margin: 0 0 2em;
-      color: palette(grey, x-dark);
-      font-size: 16px;
-      text-align: center;
     }
 
     .btn-block {
