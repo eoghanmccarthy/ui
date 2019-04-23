@@ -1,43 +1,39 @@
 import React from "react";
-import classNames from "classNames";
+
+import style from "./style";
+
+import ButtonBase from "../buttonBase/ButtonBase";
 
 interface Props {
-  type?: "button" | "submit" | "reset";
-  role?: string;
-  id?: string;
-  className?: string;
-  disabled?: boolean;
+  colour?: string;
+  round?: boolean;
+  capsule?: boolean;
+  outlined?: boolean;
   isActive?: boolean;
-  onClick: () => void;
+  loading?: boolean;
 }
 
-const Button: React.FunctionComponent<Props> = ({
-  children,
-  type = "button",
-  role = "button",
-  id = undefined,
-  className = undefined,
-  disabled = false,
-  isActive = false,
-  onClick
-}) => {
-  const _className = classNames("btn", className, {
-    active: isActive,
-    disabled: disabled
-  });
-
+const Button: React.FunctionComponent<Props> = props => {
   return (
-    <button
-      type={type}
-      role={role}
-      id={id}
-      className={_className}
-      disabled={disabled}
-      onClick={onClick}
+    <ButtonBase
+      {...props}
+      css={{
+        ...style(props),
+        borderRadius: props.round ? "50%" : props.capsule ? "1000px" : undefined
+      }}
     >
-      {children}
-    </button>
+      {props.children}
+    </ButtonBase>
   );
 };
 
 export default Button;
+
+Button.defaultProps = {
+  colour: "green",
+  round: false,
+  capsule: false,
+  outlined: false,
+  isActive: false,
+  loading: false
+};

@@ -1,7 +1,7 @@
 {
   "name": "eoghandotio-ui",
   "private": false,
-  "version": "1.0.11",
+  "version": "1.0.16",
   "description": "UI",
   "keywords": [
     "react",
@@ -28,9 +28,11 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.54",
+    "@emotion/babel-preset-css-prop": "^10.0.9",
+    "@emotion/core": "^10.0.10",
+    "@types/classnames": "^2.2.7",
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.4",
-    "@types/classnames": "^2.2.7",
     "classnames": "^2.2.6",
     "react-spring": "^8.0.19"
   },
