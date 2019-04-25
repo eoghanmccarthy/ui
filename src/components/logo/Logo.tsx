@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classNames";
 
 interface Props {
   id?: string;
@@ -15,15 +14,13 @@ const Logo: React.FunctionComponent<Props> = ({
   children,
   id = undefined,
   className = undefined,
-  fill = undefined,
+  fill = "#000",
   onClick = null
 }) => {
-  const _className = classNames("logo", className);
-
   return (
     <svg
       id={id}
-      className={_className}
+      className={className}
       onClick={onClick}
       viewBox="0 0 300 285"
       enableBackground="new 0 0 300 285"

@@ -1,6 +1,6 @@
 import React from "react";
 
-import style from "./style";
+import styles from "./styles";
 
 interface Props {
   type?: "button" | "submit" | "reset";
@@ -28,7 +28,7 @@ const ButtonBase: React.FunctionComponent<Props> = ({
       className={className}
       disabled={disabled}
       onClick={onClick}
-      css={style}
+      css={styles}
     >
       {children}
     </button>

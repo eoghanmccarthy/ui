@@ -1,10 +1,12 @@
 import React from "react";
+import { css } from "@emotion/core";
 
-import style from "./style";
+import styles from "./styles";
 
 import ButtonBase from "../buttonBase/ButtonBase";
 
 interface Props {
+  onClick: () => void;
   colour?: string;
   shape?: "rounded" | "circle" | "capsule" | undefined;
   size?: "small" | "large" | undefined;
@@ -15,21 +17,21 @@ interface Props {
 }
 
 const Button: React.FunctionComponent<Props> = props => {
-  const { children, shape, fullWidth, loading, ...rest } = props;
+  const { children, shape, fullWidth, onClick, loading, ...rest } = props;
 
   return (
     <ButtonBase
+      onClick={onClick}
+      css={css`
+        ${styles(rest)};
+        width: ${fullWidth ? "100%" : undefined};
+        border-radius: ${shape === "circle"
+          ? "50%"
+          : shape === "capsule"
+            ? "1000px"
+            : undefined};
+      `}
       {...rest}
-      css={{
-        ...style(rest),
-        width: fullWidth ? "100%" : undefined,
-        borderRadius:
-          shape === "circle"
-            ? "50%"
-            : shape === "capsule"
-              ? "1000px"
-              : undefined
-      }}
     >
       {!loading ? children : null}
     </ButtonBase>

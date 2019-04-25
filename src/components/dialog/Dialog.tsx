@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useLayoutEffect } from "react";
+import { css } from "@emotion/core";
 import { useTransition, animated, config } from "react-spring";
 
-import style from "./style";
+import * as styles from "./styles";
 
 import ContentOverlay from "components/contentOverlay/ContentOverlay";
 
@@ -10,6 +11,7 @@ interface Props {
   className?: string;
   isVisible?: boolean;
   disableAnim?: boolean;
+  disableClickableOverlay?: boolean;
   closeDialog: () => void;
   onDestroy?: () => void;
 }
@@ -20,23 +22,25 @@ const Dialog: React.FunctionComponent<Props> = ({
   className = undefined,
   isVisible = false,
   disableAnim = false,
+  disableClickableOverlay = false,
   closeDialog = null,
   onDestroy = null
 }) => {
-  const [overlay, setOverlay] = useState(false);
+  const [overlayVIS, setOverlayVIS] = useState(false);
+
   const transitions = useTransition(isVisible, null, {
     native: true,
     from: { opacity: 0.75, transform: "translateY(+70px)" },
     enter: { opacity: 1, transform: "translateY(0px)" },
     leave: { opacity: 0.75, transform: "translateY(+70px)" },
-    onDestroyed: () => !isVisible && setOverlay(false),
+    onDestroyed: () => !isVisible && setOverlayVIS(false),
     config: config.easing,
     immediate: disableAnim
   });
 
   useLayoutEffect(
     () => {
-      isVisible && setOverlay(true);
+      isVisible && setOverlayVIS(true);
     },
     [isVisible]
   );
@@ -47,26 +51,27 @@ const Dialog: React.FunctionComponent<Props> = ({
         ({ item, key, props }) =>
           item && (
             <div
-              onClick={closeDialog}
-              css={{
-                ...style().overlay
-              }}
+              key={key}
+              onClick={!disableClickableOverlay ? closeDialog : null}
+              css={css`
+                ${styles.overlay()};
+              `}
             >
               <animated.div
                 id={id}
                 style={props}
                 className={className}
                 onClick={e => e.stopPropagation()}
-                css={{
-                  ...style().modal
-                }}
+                css={css`
+                  ${styles.modal()};
+                `}
               >
                 {children}
               </animated.div>
             </div>
           )
       )}
-      <ContentOverlay isVisible={overlay} onDestroy={onDestroy} />
+      <ContentOverlay isVisible={overlayVIS} onDestroy={onDestroy} />
     </Fragment>
   );
 };

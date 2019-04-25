@@ -1,7 +1,8 @@
 import React from "react";
+import { css } from "@emotion/core";
 import { useTransition, animated } from "react-spring";
 
-import style from "./style";
+import styles from "./styles";
 
 interface Props {
   id?: string;
@@ -24,7 +25,7 @@ const ContentOverlay: React.FunctionComponent<Props> = ({
   const transitions = useTransition(isVisible, null, {
     native: true,
     from: { backgroundColor: "rgba(255,255,255,0)" },
-    enter: { backgroundColor: "rgba(255,255,255,.45)" },
+    enter: { backgroundColor: "rgba(255,255,255,.75)" },
     leave: { backgroundColor: "rgba(255,255,255,0)" },
     onDestroyed: onDestroy,
     config: {
@@ -43,9 +44,9 @@ const ContentOverlay: React.FunctionComponent<Props> = ({
           style={transparent ? undefined : props}
           className={className}
           onClick={onClick}
-          css={{
-            ...style()
-          }}
+          css={css`
+            ${styles()};
+          `}
         >
           {children}
         </animated.div>
