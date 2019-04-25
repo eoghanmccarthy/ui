@@ -1,7 +1,6 @@
 import React from "react";
 
-import styleShape from "./styles/shape";
-import styleColour from "./styles/colour";
+import style from "./style";
 
 import ButtonBase from "../buttonBase/ButtonBase";
 
@@ -16,10 +15,21 @@ interface Props {
 }
 
 const Button: React.FunctionComponent<Props> = props => {
-  const { children, loading, ...rest } = props;
+  const { children, shape, loading, ...rest } = props;
 
   return (
-    <ButtonBase {...rest} css={{ ...styleShape(rest), ...styleColour(rest) }}>
+    <ButtonBase
+      {...rest}
+      css={{
+        ...style(rest),
+        borderRadius:
+          shape === "circle"
+            ? "50%"
+            : shape === "capsule"
+              ? "1000px"
+              : undefined
+      }}
+    >
       {!loading ? children : null}
     </ButtonBase>
   );
