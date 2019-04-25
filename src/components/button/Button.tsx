@@ -1,29 +1,26 @@
 import React from "react";
 
-import { shape, colour } from "./style";
+import styleShape from "./styles/shape";
+import styleColour from "./styles/colour";
 
 import ButtonBase from "../buttonBase/ButtonBase";
 
 interface Props {
-  theme?: string;
-  rounded?: boolean;
-  circle?: boolean;
-  capsule?: boolean;
+  colour?: string;
+  shape?: "rounded" | "circle" | "capsule" | undefined;
+  size?: "small" | "large" | undefined;
+  fullWidth?: boolean;
   outlined?: boolean;
   isActive?: boolean;
   loading?: boolean;
 }
 
 const Button: React.FunctionComponent<Props> = props => {
+  const { children, loading, ...rest } = props;
+
   return (
-    <ButtonBase
-      {...props}
-      css={{
-        ...shape(props),
-        ...colour(props)
-      }}
-    >
-      {props.children}
+    <ButtonBase {...rest} css={{ ...styleShape(rest), ...styleColour(rest) }}>
+      {!loading ? children : null}
     </ButtonBase>
   );
 };
@@ -31,10 +28,10 @@ const Button: React.FunctionComponent<Props> = props => {
 export default Button;
 
 Button.defaultProps = {
-  theme: "green",
-  rounded: false,
-  circle: false,
-  capsule: false,
+  colour: "green",
+  shape: undefined,
+  size: undefined,
+  fullWidth: false,
   outlined: false,
   isActive: false,
   loading: false
