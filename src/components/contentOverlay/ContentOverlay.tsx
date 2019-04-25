@@ -1,14 +1,13 @@
 import React from "react";
 import { useTransition, animated } from "react-spring";
-import classNames from "classNames";
+
+import style from "./style";
 
 interface Props {
   id?: string;
   className?: string;
   isVisible: boolean;
   transparent?: boolean;
-  atRoot?: boolean;
-  rootID?: string;
   onClick?: () => void;
   onDestroy?: () => void;
 }
@@ -16,30 +15,23 @@ interface Props {
 const ContentOverlay: React.FunctionComponent<Props> = ({
   children,
   id = undefined,
-  className = "",
+  className = undefined,
   isVisible,
   transparent = false,
-  atRoot = false,
-  rootID = "app-root",
   onClick = null,
   onDestroy = null
 }) => {
   const transitions = useTransition(isVisible, null, {
     native: true,
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    from: { backgroundColor: "rgba(255,255,255,0)" },
+    enter: { backgroundColor: "rgba(255,255,255,.45)" },
+    leave: { backgroundColor: "rgba(255,255,255,0)" },
     onDestroyed: onDestroy,
     config: {
       tension: 220,
       friction: 20,
       clamp: true
     }
-  });
-
-  const _className = classNames("content-overlay", className, {
-    active: isVisible,
-    transparent: transparent
   });
 
   return transitions.map(
@@ -49,8 +41,11 @@ const ContentOverlay: React.FunctionComponent<Props> = ({
           key={key}
           id={id}
           style={transparent ? undefined : props}
-          className={_className}
+          className={className}
           onClick={onClick}
+          css={{
+            ...style()
+          }}
         >
           {children}
         </animated.div>

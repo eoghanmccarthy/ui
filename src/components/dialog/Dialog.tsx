@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useLayoutEffect } from "react";
 import { useTransition, animated, config } from "react-spring";
-import classNames from "classNames";
 
-import ContentOverlay from "src/contentOverlay/ContentOverlay";
-//import BtnClose from 'shared/modal/closeBtn';
+import style from "./style";
+
+import ContentOverlay from "components/contentOverlay/ContentOverlay";
 
 interface Props {
   id?: string;
@@ -34,10 +34,6 @@ const Dialog: React.FunctionComponent<Props> = ({
     immediate: disableAnim
   });
 
-  const _className = classNames("dialog", className, {
-    active: isVisible
-  });
-
   useLayoutEffect(
     () => {
       isVisible && setOverlay(true);
@@ -50,23 +46,27 @@ const Dialog: React.FunctionComponent<Props> = ({
       {transitions.map(
         ({ item, key, props }) =>
           item && (
-            <div className={"dialog-overlay"} onClick={closeDialog}>
+            <div
+              onClick={closeDialog}
+              css={{
+                ...style().overlay
+              }}
+            >
               <animated.div
                 id={id}
                 style={props}
-                className={_className}
+                className={className}
                 onClick={e => e.stopPropagation()}
+                css={{
+                  ...style().modal
+                }}
               >
-                <div className={"dialog__gutter"}>
-                  {closeDialog && <BtnClose onClick={closeDialog} />}
-                </div>
-                <div className={"dialog__main"}>{children}</div>
-                <div className={"dialog__gutter"} />
+                {children}
               </animated.div>
             </div>
           )
       )}
-      <ContentOverlay atRoot isVisible={overlay} onDestroy={onDestroy} />
+      <ContentOverlay isVisible={overlay} onDestroy={onDestroy} />
     </Fragment>
   );
 };

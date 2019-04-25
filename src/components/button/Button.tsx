@@ -15,13 +15,14 @@ interface Props {
 }
 
 const Button: React.FunctionComponent<Props> = props => {
-  const { children, shape, loading, ...rest } = props;
+  const { children, shape, fullWidth, loading, ...rest } = props;
 
   return (
     <ButtonBase
       {...rest}
       css={{
         ...style(rest),
+        width: fullWidth ? "100%" : undefined,
         borderRadius:
           shape === "circle"
             ? "50%"
