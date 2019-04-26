@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/core";
 
-import styles from "./styles";
+import * as styles from "./styles";
 
 import ButtonBase from "../buttonBase/ButtonBase";
 
@@ -23,13 +23,9 @@ const Button: React.FunctionComponent<Props> = props => {
     <ButtonBase
       onClick={onClick}
       css={css`
-        ${styles(rest)};
+        ${styles.colour(props)};
+        ${styles.shape(shape)};
         width: ${fullWidth ? "100%" : undefined};
-        border-radius: ${shape === "circle"
-          ? "50%"
-          : shape === "capsule"
-            ? "1000px"
-            : undefined};
       `}
       {...rest}
     >

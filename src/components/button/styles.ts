@@ -1,7 +1,7 @@
 import { css } from "@emotion/core";
 import lightenDarkenColour from "utils/lightenDarkenColour";
 
-export default (props: any) => {
+export const colour = (props: any) => {
   const { outlined, colour } = props;
 
   if (outlined) {
@@ -27,9 +27,21 @@ export default (props: any) => {
       border: 1px solid ${colour};
 
       &:hover {
-        background-color: ${lightenDarkenColour(colour, 50)};
-        border: 1px solid ${lightenDarkenColour(colour, 50)};
+        background-color: ${lightenDarkenColour(colour, -40)};
+        border: 1px solid ${lightenDarkenColour(colour, -40)};
       }
     `;
   }
+};
+
+export const shape = (shape: string) => {
+  return css`
+    border-radius: ${shape === "circle"
+      ? "50%"
+      : shape === "capsule"
+        ? "1000px"
+        : shape === "rounded"
+          ? "4px"
+          : undefined};
+  `;
 };
