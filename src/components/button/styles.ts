@@ -23,12 +23,18 @@ export const colour = (props: any) => {
       span {
         background-color: ${colour};
       }
+      svg line {
+        stroke: ${colour};
+      }
 
       &:hover {
         color: #ffffff;
         background-color: ${colour};
         span {
           background-color: #ffffff;
+        }
+        svg line {
+          stroke: #ffffff;
         }
       }
     `;
@@ -37,6 +43,9 @@ export const colour = (props: any) => {
       color: ${colour};
       span {
         background-color: ${colour};
+      }
+      svg line {
+        stroke: ${colour};
       }
     `;
   }
