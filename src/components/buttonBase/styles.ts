@@ -9,7 +9,7 @@ export default () => css`
   padding: 0;
   margin: 0;
   background-color: transparent;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 0;
   outline: none;
   overflow: hidden;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classNames from "classNames";
+import classNames from "classnames";
 
 interface Props {
   id?: string;
@@ -23,7 +23,7 @@ const ImageBackground: React.FunctionComponent<Props> = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  const _className = classNames("img__background", className);
+  const _classNames = classNames("img__background", className);
 
   useEffect(
     () => {
@@ -61,7 +61,7 @@ const ImageBackground: React.FunctionComponent<Props> = ({
   return (
     <div
       id={id}
-      className={_className}
+      className={_classNames}
       style={{ backgroundImage: `url(${url})` }}
       onClick={onClick}
     >
