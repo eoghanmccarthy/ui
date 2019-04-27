@@ -1,5 +1,4 @@
 var path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -27,35 +26,10 @@ module.exports = {
             loader: "babel-loader"
           }
         ]
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        exclude: /node_modules/,
-        use: [
-          "style-loader",
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              ident: "postcss",
-              config: {
-                path: "./postcss.config.js"
-              },
-              plugins: loader => [require("autoprefixer")()]
-            }
-          },
-          "sass-loader"
-        ]
       }
     ]
   },
   externals: {
     react: "commonjs react"
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: "index.css"
-    })
-  ]
+  }
 };
