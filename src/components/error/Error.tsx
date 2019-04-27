@@ -1,21 +1,14 @@
 import React, { Component } from "react";
 
-interface Props {
-  location?: string;
-}
+interface Props {}
 
-interface State {
-  hasError: boolean;
-}
-
-export default class ErrorBoundary extends Component<Props, State> {
-  static defaultProps: Props = {
-    location: ""
-  };
-
-  state: Readonly<State> = {
-    hasError: false
-  };
+export default class ErrorBoundary extends Component<Props, {}> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false
+    };
+  }
 
   static getDerivedStateFromError(error) {
     return { hasError: true };
