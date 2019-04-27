@@ -6,6 +6,7 @@ export default () => css`
   justify-content: center;
   align-items: center;
   position: relative;
+  height: fill-available;
   padding: 0;
   background-color: transparent;
   transition: all 0.25s ease;
