@@ -11,8 +11,8 @@ export const colour = (props: any) => {
       border: 1px solid ${colour};
 
       &:hover {
-        background-color: ${lightenDarkenColour(colour, -40)};
-        border: 1px solid ${lightenDarkenColour(colour, -40)};
+        background-color: ${lightenDarkenColour(colour, -50)};
+        border: 1px solid ${lightenDarkenColour(colour, -50)};
       }
     `;
   } else if (tier === "outlined") {
