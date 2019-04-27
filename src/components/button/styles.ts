@@ -20,9 +20,6 @@ export const colour = (props: any) => {
       color: ${colour};
       background-color: transparent;
       border: 1px solid ${colour};
-      span {
-        background-color: ${colour};
-      }
       svg line {
         stroke: ${colour};
       }
@@ -30,9 +27,6 @@ export const colour = (props: any) => {
       &:hover {
         color: #ffffff;
         background-color: ${colour};
-        span {
-          background-color: #ffffff;
-        }
         svg line {
           stroke: #ffffff;
         }
@@ -41,9 +35,6 @@ export const colour = (props: any) => {
   } else if (tier === "basic") {
     return css`
       color: ${colour};
-      span {
-        background-color: ${colour};
-      }
       svg line {
         stroke: ${colour};
       }
