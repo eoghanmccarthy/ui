@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { css } from "@emotion/core";
+
+import * as styles from "./styles";
 
 interface Props {
   location?: string;
@@ -30,7 +33,15 @@ export default class ErrorBoundary extends Component<Props, State> {
     const { children } = this.props;
 
     if (hasError) {
-      return <span>Something went wrong.</span>;
+      return (
+        <section
+          css={css`
+            ${styles};
+          `}
+        >
+          Something went wrong.
+        </section>
+      );
     }
 
     return children;
