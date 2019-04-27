@@ -11,7 +11,7 @@ interface Props {
   onClick: () => void;
   disabled?: boolean;
   colour?: string;
-  tier?: "contained" | "outlined" | "basic" | undefined;
+  tier?: "contained" | "outlined" | "basic";
   shape?: "rounded" | "circle" | "capsule" | undefined;
   size?: "small" | "large" | undefined;
   fullWidth?: boolean;
@@ -61,7 +61,7 @@ Button.defaultProps = {
   className: undefined,
   disabled: false,
   colour: "#000000",
-  tier: undefined,
+  tier: "basic",
   shape: undefined,
   size: undefined,
   fullWidth: false,
