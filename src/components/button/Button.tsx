@@ -47,7 +47,8 @@ const Button: React.FunctionComponent<Props> = props => {
         ${styles.colour(props)};
         ${styles.shape(shape)};
         ${styles.size(props)};
-        width: ${fullWidth ? "100%" : undefined};
+        width: ${fullWidth ? "100%" : 0};
+        height: 0;
       `}
       {...rest}
     >
