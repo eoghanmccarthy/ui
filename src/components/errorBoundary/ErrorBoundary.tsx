@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import styles from "./styles";
 
+import Error from "components/error/Error";
+
 interface Props {
   location?: string;
 }
@@ -32,7 +34,11 @@ export default class ErrorBoundary extends Component<Props, State> {
     const { children } = this.props;
 
     if (hasError) {
-      return <section css={styles}>Something went wrong.</section>;
+      return (
+        <section css={styles}>
+          <Error message={"Wasn't me."} />
+        </section>
+      );
     }
 
     return children;
