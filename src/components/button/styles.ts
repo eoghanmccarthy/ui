@@ -53,3 +53,19 @@ export const shape = (shape: string) => {
           : undefined};
   `;
 };
+
+export const size = (props: any) => {
+  const { size, shape } = props;
+
+  if (size === "small") {
+    return css`
+      min-width: ${shape === "circle" ? "40px" : undefined};
+      min-height: 40px;
+    `;
+  } else if (size === "large") {
+    return css`
+      min-width: ${shape === "circle" ? "50px" : undefined};
+      min-height: 50px;
+    `;
+  }
+};
