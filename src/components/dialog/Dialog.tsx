@@ -1,10 +1,13 @@
 import React, { Fragment, useState, useLayoutEffect } from "react";
+import ReactDOM from "react-dom";
 import { css } from "@emotion/core";
 import { useTransition, animated, config } from "react-spring";
 
 import * as styles from "./styles";
 
 import ContentOverlay from "components/contentOverlay/ContentOverlay";
+
+const rootNode = document.getElementById("app-root");
 
 interface Props {
   id?: string;

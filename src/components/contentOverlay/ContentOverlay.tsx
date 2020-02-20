@@ -1,8 +1,11 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { css } from "@emotion/core";
 import { useTransition, animated } from "react-spring";
 
 import styles from "./styles";
+
+const rootNode = document.getElementById("app-root");
 
 interface Props {
   id?: string;

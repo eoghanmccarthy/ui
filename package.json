@@ -21,6 +21,7 @@
   "bugs": {
     "url": "https://github.com/eoghanmccarthy/ui/issues"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "homepage": "https://github.com/eoghanmccarthy/ui#readme",
   "peerDependencies": {
     "react": "^16.8.6",
