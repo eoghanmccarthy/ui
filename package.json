@@ -1,7 +1,7 @@
 {
-  "name": "@eoghanmccarthy/eoghandotio-ui",
+  "name": "@eoghanmccarthy/ui",
   "private": false,
-  "version": "1.0.51",
+  "version": "1.0.52",
   "description": "ui",
   "keywords": [
     "react",
