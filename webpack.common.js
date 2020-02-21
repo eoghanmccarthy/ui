@@ -11,7 +11,7 @@ module.exports = {
     alias: {
       src: path.resolve(__dirname, "src/"),
       components: path.resolve(__dirname, "src/components"),
-      utils: path.resolve(__dirname, "src/utils")
+      examples: path.resolve(__dirname, "src/examples")
     },
     extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
