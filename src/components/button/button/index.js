@@ -16,8 +16,6 @@ const Button = forwardRef(
       target,
       size = "md",
       shape = "circle",
-      variant = "contained",
-      color,
       ...rest
     },
     forwardedRef
@@ -35,7 +33,7 @@ const Button = forwardRef(
         ${styles}
           min-width: ${shape === "circle" && minHeight[size]};
           min-height: ${minHeight[size]};
-          padding: 0 ${shape === "rounded" ? "0.75em" : "0"};
+          padding: 0 ${shape === "circle" ? "0" : "0.75em"};
           border-radius: ${borderRadius[shape]};
           &:focus {
             box-shadow: 0 0 0 3px white;
@@ -55,9 +53,7 @@ Button.propTypes = {
   href: string,
   target: oneOf(["_blank", "_self", "_parent", "_top"]),
   size: oneOf(["xs", "sm", "md", "lg", "xl"]),
-  shape: oneOf(["rounded", "circle"]),
-  variant: oneOf(["contained", "outlined", "text"]),
-  color: string.isRequired
+  shape: oneOf(["rounded", "circle", "capsule"])
 };
 
 const minHeight = {
@@ -70,5 +66,6 @@ const minHeight = {
 
 const borderRadius = {
   rounded: "2px",
-  circle: "100%"
+  circle: "100%",
+  capsule: "1000px"
 };

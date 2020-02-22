@@ -279,7 +279,7 @@ module.exports = (function(e) {
     })();
     var u = function(e) {
       function r(e, r, n) {
-        var a = r.trim().split(v);
+        var a = r.trim().split(p);
         r = a;
         var i = a.length,
           c = e.length;
@@ -302,13 +302,13 @@ module.exports = (function(e) {
         var n = r.charCodeAt(0);
         switch ((33 > n && (n = (r = r.trim()).charCodeAt(0)), n)) {
           case 38:
-            return r.replace(p, "$1" + e.trim());
+            return r.replace(v, "$1" + e.trim());
           case 58:
-            return e.trim() + r.replace(p, "$1" + e.trim());
+            return e.trim() + r.replace(v, "$1" + e.trim());
           default:
             if (0 < 1 * t && 0 < r.indexOf("\f"))
               return r.replace(
-                p,
+                v,
                 (58 === e.charCodeAt(0) ? "" : "$1") + e.trim()
               );
         }
@@ -396,8 +396,8 @@ module.exports = (function(e) {
               c
             );
           case 1005:
-            return f.test(c)
-              ? c.replace(d, ":-webkit-") + c.replace(d, ":-moz-") + c
+            return d.test(c)
+              ? c.replace(f, ":-webkit-") + c.replace(f, ":-moz-") + c
               : c;
           case 1e3:
             switch (
@@ -524,15 +524,15 @@ module.exports = (function(e) {
           : "(" + r + ")";
       }
       function c(e, r, t, n, a, i, c, o, l, u) {
-        for (var d, f = 0, h = r; f < z; ++f)
-          switch ((d = P[f].call(s, e, h, t, n, a, i, c, o, l, u))) {
+        for (var f, d = 0, h = r; d < z; ++d)
+          switch ((f = P[d].call(s, e, h, t, n, a, i, c, o, l, u))) {
             case void 0:
             case !1:
             case !0:
             case null:
               break;
             default:
-              h = d;
+              h = f;
           }
         if (h !== r) return h;
       }
@@ -554,11 +554,11 @@ module.exports = (function(e) {
           var s = c(-1, t, o, o, _, j, 0, 0, 0, 0);
           void 0 !== s && "string" == typeof s && (t = s);
         }
-        var d = (function e(t, o, s, d, f) {
+        var f = (function e(t, o, s, f, d) {
           for (
             var h,
-              v,
               p,
+              v,
               y,
               w,
               x = 0,
@@ -567,35 +567,35 @@ module.exports = (function(e) {
               O = 0,
               P = 0,
               I = 0,
-              R = (p = h = 0),
-              W = 0,
+              W = (v = h = 0),
+              R = 0,
               $ = 0,
               M = 0,
               G = 0,
               L = s.length,
               B = L - 1,
               D = "",
-              q = "",
               U = "",
+              q = "",
               F = "";
-            W < L;
+            R < L;
 
           ) {
             if (
-              ((v = s.charCodeAt(W)),
-              W === B &&
+              ((p = s.charCodeAt(R)),
+              R === B &&
                 0 !== C + O + A + x &&
-                (0 !== C && (v = 47 === C ? 10 : 47),
+                (0 !== C && (p = 47 === C ? 10 : 47),
                 (O = A = x = 0),
                 L++,
                 B++),
               0 === C + O + A + x)
             ) {
               if (
-                W === B &&
+                R === B &&
                 (0 < $ && (D = D.replace(u, "")), 0 < D.trim().length)
               ) {
-                switch (v) {
+                switch (p) {
                   case 32:
                   case 9:
                   case 59:
@@ -603,71 +603,71 @@ module.exports = (function(e) {
                   case 10:
                     break;
                   default:
-                    D += s.charAt(W);
+                    D += s.charAt(R);
                 }
-                v = 59;
+                p = 59;
               }
-              switch (v) {
+              switch (p) {
                 case 123:
                   for (
-                    h = (D = D.trim()).charCodeAt(0), p = 1, G = ++W;
-                    W < L;
+                    h = (D = D.trim()).charCodeAt(0), v = 1, G = ++R;
+                    R < L;
 
                   ) {
-                    switch ((v = s.charCodeAt(W))) {
+                    switch ((p = s.charCodeAt(R))) {
                       case 123:
-                        p++;
+                        v++;
                         break;
                       case 125:
-                        p--;
+                        v--;
                         break;
                       case 47:
-                        switch ((v = s.charCodeAt(W + 1))) {
+                        switch ((p = s.charCodeAt(R + 1))) {
                           case 42:
                           case 47:
                             e: {
-                              for (R = W + 1; R < B; ++R)
-                                switch (s.charCodeAt(R)) {
+                              for (W = R + 1; W < B; ++W)
+                                switch (s.charCodeAt(W)) {
                                   case 47:
                                     if (
-                                      42 === v &&
-                                      42 === s.charCodeAt(R - 1) &&
-                                      W + 2 !== R
+                                      42 === p &&
+                                      42 === s.charCodeAt(W - 1) &&
+                                      R + 2 !== W
                                     ) {
-                                      W = R + 1;
+                                      R = W + 1;
                                       break e;
                                     }
                                     break;
                                   case 10:
-                                    if (47 === v) {
-                                      W = R + 1;
+                                    if (47 === p) {
+                                      R = W + 1;
                                       break e;
                                     }
                                 }
-                              W = R;
+                              R = W;
                             }
                         }
                         break;
                       case 91:
-                        v++;
+                        p++;
                       case 40:
-                        v++;
+                        p++;
                       case 34:
                       case 39:
-                        for (; W++ < B && s.charCodeAt(W) !== v; );
+                        for (; R++ < B && s.charCodeAt(R) !== p; );
                     }
-                    if (0 === p) break;
-                    W++;
+                    if (0 === v) break;
+                    R++;
                   }
                   switch (
-                    ((p = s.substring(G, W)),
+                    ((v = s.substring(G, R)),
                     0 === h &&
                       (h = (D = D.replace(l, "").trim()).charCodeAt(0)),
                     h)
                   ) {
                     case 64:
                       switch (
-                        (0 < $ && (D = D.replace(u, "")), (v = D.charCodeAt(1)))
+                        (0 < $ && (D = D.replace(u, "")), (p = D.charCodeAt(1)))
                       ) {
                         case 100:
                         case 109:
@@ -679,42 +679,42 @@ module.exports = (function(e) {
                           $ = E;
                       }
                       if (
-                        ((G = (p = e(o, $, p, v, f + 1)).length),
+                        ((G = (v = e(o, $, v, p, d + 1)).length),
                         0 < z &&
-                          ((w = c(3, p, ($ = r(E, D, M)), o, _, j, G, v, f, d)),
+                          ((w = c(3, v, ($ = r(E, D, M)), o, _, j, G, p, d, f)),
                           (D = $.join("")),
                           void 0 !== w &&
-                            0 === (G = (p = w.trim()).length) &&
-                            ((v = 0), (p = ""))),
+                            0 === (G = (v = w.trim()).length) &&
+                            ((p = 0), (v = ""))),
                         0 < G)
                       )
-                        switch (v) {
+                        switch (p) {
                           case 115:
                             D = D.replace(k, i);
                           case 100:
                           case 109:
                           case 45:
-                            p = D + "{" + p + "}";
+                            v = D + "{" + v + "}";
                             break;
                           case 107:
-                            (p = (D = D.replace(b, "$1 $2")) + "{" + p + "}"),
-                              (p =
-                                1 === S || (2 === S && a("@" + p, 3))
-                                  ? "@-webkit-" + p + "@" + p
-                                  : "@" + p);
+                            (v = (D = D.replace(b, "$1 $2")) + "{" + v + "}"),
+                              (v =
+                                1 === S || (2 === S && a("@" + v, 3))
+                                  ? "@-webkit-" + v + "@" + v
+                                  : "@" + v);
                             break;
                           default:
-                            (p = D + p), 112 === d && ((q += p), (p = ""));
+                            (v = D + v), 112 === f && ((U += v), (v = ""));
                         }
-                      else p = "";
+                      else v = "";
                       break;
                     default:
-                      p = e(o, r(o, D, M), p, d, f + 1);
+                      v = e(o, r(o, D, M), v, f, d + 1);
                   }
-                  (U += p),
-                    (p = M = $ = R = h = 0),
+                  (q += v),
+                    (v = M = $ = W = h = 0),
                     (D = ""),
-                    (v = s.charCodeAt(++W));
+                    (p = s.charCodeAt(++R));
                   break;
                 case 125:
                 case 59:
@@ -722,43 +722,43 @@ module.exports = (function(e) {
                     1 < (G = (D = (0 < $ ? D.replace(u, "") : D).trim()).length)
                   )
                     switch (
-                      (0 === R &&
+                      (0 === W &&
                         ((h = D.charCodeAt(0)),
                         45 === h || (96 < h && 123 > h)) &&
                         (G = (D = D.replace(" ", ":")).length),
                       0 < z &&
                         void 0 !==
-                          (w = c(1, D, o, t, _, j, q.length, d, f, d)) &&
+                          (w = c(1, D, o, t, _, j, U.length, f, d, f)) &&
                         0 === (G = (D = w.trim()).length) &&
                         (D = "\0\0"),
                       (h = D.charCodeAt(0)),
-                      (v = D.charCodeAt(1)),
+                      (p = D.charCodeAt(1)),
                       h)
                     ) {
                       case 0:
                         break;
                       case 64:
-                        if (105 === v || 99 === v) {
-                          F += D + s.charAt(W);
+                        if (105 === p || 99 === p) {
+                          F += D + s.charAt(R);
                           break;
                         }
                       default:
                         58 !== D.charCodeAt(G - 1) &&
-                          (q += n(D, h, v, D.charCodeAt(2)));
+                          (U += n(D, h, p, D.charCodeAt(2)));
                     }
-                  (M = $ = R = h = 0), (D = ""), (v = s.charCodeAt(++W));
+                  (M = $ = W = h = 0), (D = ""), (p = s.charCodeAt(++R));
               }
             }
-            switch (v) {
+            switch (p) {
               case 13:
               case 10:
                 47 === C
                   ? (C = 0)
                   : 0 === 1 + h &&
-                    107 !== d &&
+                    107 !== f &&
                     0 < D.length &&
                     (($ = 1), (D += "\0")),
-                  0 < z * T && c(0, D, o, t, _, j, q.length, d, f, d),
+                  0 < z * T && c(0, D, o, t, _, j, U.length, f, d, f),
                   (j = 1),
                   _++;
                 break;
@@ -769,7 +769,7 @@ module.exports = (function(e) {
                   break;
                 }
               default:
-                switch ((j++, (y = s.charAt(W)), v)) {
+                switch ((j++, (y = s.charAt(R)), p)) {
                   case 9:
                   case 32:
                     if (0 === O + x + C)
@@ -781,7 +781,7 @@ module.exports = (function(e) {
                           y = "";
                           break;
                         default:
-                          32 !== v && (y = " ");
+                          32 !== p && (y = " ");
                       }
                     break;
                   case 0:
@@ -797,23 +797,23 @@ module.exports = (function(e) {
                     0 === O + C + x && (($ = M = 1), (y = "\f" + y));
                     break;
                   case 108:
-                    if (0 === O + C + x + N && 0 < R)
-                      switch (W - R) {
+                    if (0 === O + C + x + N && 0 < W)
+                      switch (R - W) {
                         case 2:
-                          112 === P && 58 === s.charCodeAt(W - 3) && (N = P);
+                          112 === P && 58 === s.charCodeAt(R - 3) && (N = P);
                         case 8:
                           111 === I && (N = I);
                       }
                     break;
                   case 58:
-                    0 === O + C + x && (R = W);
+                    0 === O + C + x && (W = R);
                     break;
                   case 44:
                     0 === C + A + O + x && (($ = 1), (y += "\r"));
                     break;
                   case 34:
                   case 39:
-                    0 === C && (O = O === v ? 0 : 0 === O ? v : O);
+                    0 === C && (O = O === p ? 0 : 0 === O ? p : O);
                     break;
                   case 91:
                     0 === O + C + A && x++;
@@ -837,76 +837,76 @@ module.exports = (function(e) {
                     }
                     break;
                   case 64:
-                    0 === C + A + O + x + R + p && (p = 1);
+                    0 === C + A + O + x + W + v && (v = 1);
                     break;
                   case 42:
                   case 47:
                     if (!(0 < O + x + A))
                       switch (C) {
                         case 0:
-                          switch (2 * v + 3 * s.charCodeAt(W + 1)) {
+                          switch (2 * p + 3 * s.charCodeAt(R + 1)) {
                             case 235:
                               C = 47;
                               break;
                             case 220:
-                              (G = W), (C = 42);
+                              (G = R), (C = 42);
                           }
                           break;
                         case 42:
-                          47 === v &&
+                          47 === p &&
                             42 === P &&
-                            G + 2 !== W &&
+                            G + 2 !== R &&
                             (33 === s.charCodeAt(G + 2) &&
-                              (q += s.substring(G, W + 1)),
+                              (U += s.substring(G, R + 1)),
                             (y = ""),
                             (C = 0));
                       }
                 }
                 0 === C && (D += y);
             }
-            (I = P), (P = v), W++;
+            (I = P), (P = p), R++;
           }
-          if (0 < (G = q.length)) {
+          if (0 < (G = U.length)) {
             if (
               (($ = o),
               0 < z &&
-                void 0 !== (w = c(2, q, $, t, _, j, G, d, f, d)) &&
-                0 === (q = w).length)
+                void 0 !== (w = c(2, U, $, t, _, j, G, f, d, f)) &&
+                0 === (U = w).length)
             )
-              return F + q + U;
-            if (((q = $.join(",") + "{" + q + "}"), 0 != S * N)) {
-              switch ((2 !== S || a(q, 2) || (N = 0), N)) {
+              return F + U + q;
+            if (((U = $.join(",") + "{" + U + "}"), 0 != S * N)) {
+              switch ((2 !== S || a(U, 2) || (N = 0), N)) {
                 case 111:
-                  q = q.replace(g, ":-moz-$1") + q;
+                  U = U.replace(g, ":-moz-$1") + U;
                   break;
                 case 112:
-                  q =
-                    q.replace(m, "::-webkit-input-$1") +
-                    q.replace(m, "::-moz-$1") +
-                    q.replace(m, ":-ms-input-$1") +
-                    q;
+                  U =
+                    U.replace(m, "::-webkit-input-$1") +
+                    U.replace(m, "::-moz-$1") +
+                    U.replace(m, ":-ms-input-$1") +
+                    U;
               }
               N = 0;
             }
           }
-          return F + q + U;
+          return F + U + q;
         })(E, o, t, 0, 0);
         return (
           0 < z &&
-            void 0 !== (s = c(-2, d, o, o, _, j, d.length, 0, 0, 0)) &&
-            (d = s),
+            void 0 !== (s = c(-2, f, o, o, _, j, f.length, 0, 0, 0)) &&
+            (f = s),
           (N = 0),
           (j = _ = 1),
-          d
+          f
         );
       }
       var l = /^\0+/g,
         u = /[\0\r\f]/g,
-        d = /: */g,
-        f = /zoo|gra/,
+        f = /: */g,
+        d = /zoo|gra/,
         h = /([,: ])(transform)/g,
-        v = /,\r+?/g,
-        p = /([\t\r\n ])*\f?&/g,
+        p = /,\r+?/g,
+        v = /([\t\r\n ])*\f?&/g,
         b = /@(k\w+)\s*(\S*)\s*/,
         m = /::(place)/g,
         g = /:(read-only)/g,
@@ -946,16 +946,16 @@ module.exports = (function(e) {
         s
       );
     };
-    function d(e) {
-      e && f.current.insert(e + "}");
+    function f(e) {
+      e && d.current.insert(e + "}");
     }
-    var f = { current: null },
+    var d = { current: null },
       h = function(e, r, t, n, a, i, c, o, s, l) {
         switch (e) {
           case 1:
             switch (r.charCodeAt(0)) {
               case 64:
-                return f.current.insert(r + ";"), "";
+                return d.current.insert(r + ";"), "";
               case 108:
                 if (98 === r.charCodeAt(2)) return "";
             }
@@ -967,15 +967,15 @@ module.exports = (function(e) {
             switch (o) {
               case 102:
               case 112:
-                return f.current.insert(t[0] + r), "";
+                return d.current.insert(t[0] + r), "";
               default:
                 return r + (0 === l ? "/*|*/" : "");
             }
           case -2:
-            r.split("/*|*/}").forEach(d);
+            r.split("/*|*/}").forEach(f);
         }
       },
-      v = function(e) {
+      p = function(e) {
         void 0 === e && (e = {});
         var r,
           t = e.key || "css";
@@ -998,7 +998,7 @@ module.exports = (function(e) {
           n.use(e.stylisPlugins)(h),
           (c = function(e, r, t, a) {
             var i = r.name;
-            (f.current = t), n(e, r.styles), a && (s.inserted[i] = !0);
+            (d.current = t), n(e, r.styles), a && (s.inserted[i] = !0);
           });
         var s = {
           key: t,
@@ -1015,7 +1015,7 @@ module.exports = (function(e) {
         };
         return s;
       };
-    function p(e, r, t) {
+    function v(e, r, t) {
       var n = "";
       return (
         t.split(" ").forEach(function(t) {
@@ -1227,7 +1227,7 @@ module.exports = (function(e) {
         r[t] = arguments[t];
       return j(r);
     };
-    var N = Object(s.createContext)(v()),
+    var N = Object(s.createContext)(p()),
       S = Object(s.createContext)({}),
       E =
         (N.Provider,
@@ -1249,13 +1249,13 @@ module.exports = (function(e) {
           void 0 !== e.registered[o] &&
           (o = e.registered[o]),
           i.push(o),
-          void 0 !== r.className && (c = p(e.registered, i, r.className));
+          void 0 !== r.className && (c = v(e.registered, i, r.className));
         var l = j(i);
         b(e, l, "string" == typeof a);
         c += e.key + "-" + l.name;
         var u = {};
-        for (var d in r)
-          z.call(r, d) && "css" !== d && d !== P && (u[d] = r[d]);
+        for (var f in r)
+          z.call(r, f) && "css" !== f && f !== P && (u[f] = r[f]);
         return (u.ref = n), (u.className = c), Object(s.createElement)(a, u);
       },
       T = E(function(e, r, t) {
@@ -1265,7 +1265,7 @@ module.exports = (function(e) {
             })
           : I(r, e, null, t);
       });
-    var R = function(e, r) {
+    var W = function(e, r) {
       var t = arguments;
       if (null == r || null == r.css) return s.createElement.apply(void 0, t);
       var n = t.length,
@@ -1297,7 +1297,7 @@ module.exports = (function(e) {
                 t[a] = arguments[a];
               return (function(e, r, t) {
                 var n = [],
-                  a = p(e, n, t);
+                  a = v(e, n, t);
                 return n.length < 2 ? t : a + r(n);
               })(
                 r.registered,
@@ -1332,7 +1332,7 @@ module.exports = (function(e) {
         return !0, i;
       });
     });
-    var W = t(1),
+    var R = t(1),
       $ = t(4),
       M = t.n($),
       G = {
@@ -1346,13 +1346,13 @@ module.exports = (function(e) {
             n = r.id,
             a = r.className,
             c = o()(r, ["testId", "id", "className"]);
-          return R(e, i()({ "data-testid": t, id: n, className: a }, c));
+          return W(e, i()({ "data-testid": t, id: n, className: a }, c));
         };
         return (
           (r.propTypes = {
-            testId: W.string,
-            id: W.string,
-            className: W.string
+            testId: R.string,
+            id: R.string,
+            className: R.string
           }),
           r
         );
@@ -1369,27 +1369,27 @@ module.exports = (function(e) {
             s = r.tabIndex,
             l = void 0 === s ? "0" : s,
             u = r.disabled,
-            d = void 0 !== u && u,
-            f = r.onClick,
-            h = void 0 === f ? B : f,
-            v = o()(r, ["role", "type", "tabIndex", "disabled", "onClick"]);
-          return R(
+            f = void 0 !== u && u,
+            d = r.onClick,
+            h = void 0 === d ? B : d,
+            p = o()(r, ["role", "type", "tabIndex", "disabled", "onClick"]);
+          return W(
             e,
-            i()({ role: n, type: c, tabIndex: l, disabled: d, onClick: h }, v)
+            i()({ role: n, type: c, tabIndex: l, disabled: f, onClick: h }, p)
           );
         };
         return (
           (r.propTypes = {
-            role: W.string,
-            type: Object(W.oneOf)(["button", "submit", "reset"]),
-            tabIndex: W.string,
-            disabled: W.bool,
-            onClick: W.func
+            role: R.string,
+            type: Object(R.oneOf)(["button", "submit", "reset"]),
+            tabIndex: R.string,
+            disabled: R.bool,
+            onClick: R.func
           }),
           L(r)
         );
       },
-      q = Object(s.forwardRef)(function(e, r) {
+      U = Object(s.forwardRef)(function(e, r) {
         var t = e.children,
           n = e.className,
           a = e.disabled,
@@ -1397,24 +1397,19 @@ module.exports = (function(e) {
           s = void 0 === c ? "" : c,
           l = e.target,
           u = e.size,
-          d = void 0 === u ? "md" : u,
-          f = e.shape,
-          h = void 0 === f ? "circle" : f,
-          v =
-            (e.variant,
-            e.color,
-            o()(e, [
-              "children",
-              "className",
-              "disabled",
-              "href",
-              "target",
-              "size",
-              "shape",
-              "variant",
-              "color"
-            ]));
-        return R(
+          f = void 0 === u ? "md" : u,
+          d = e.shape,
+          h = void 0 === d ? "circle" : d,
+          p = o()(e, [
+            "children",
+            "className",
+            "disabled",
+            "href",
+            "target",
+            "size",
+            "shape"
+          ]);
+        return W(
           s ? "a" : "button",
           i()(
             { ref: r },
@@ -1426,38 +1421,36 @@ module.exports = (function(e) {
               css: _(
                 G,
                 " min-width:",
-                "circle" === h && F[d],
+                "circle" === h && F[f],
                 ";min-height:",
-                F[d],
+                F[f],
                 ";padding:0 ",
-                "rounded" === h ? "0.75em" : "0",
+                "circle" === h ? "0" : "0.75em",
                 ";border-radius:",
                 H[h],
                 ";&:focus{box-shadow:0 0 0 3px white;}label:Button;"
               )
             },
-            v
+            p
           ),
           t
         );
       }),
-      U = D(q);
-    q.propTypes = {
-      href: W.string,
-      target: Object(W.oneOf)(["_blank", "_self", "_parent", "_top"]),
-      size: Object(W.oneOf)(["xs", "sm", "md", "lg", "xl"]),
-      shape: Object(W.oneOf)(["rounded", "circle"]),
-      variant: Object(W.oneOf)(["contained", "outlined", "text"]),
-      color: W.string.isRequired
+      q = D(U);
+    U.propTypes = {
+      href: R.string,
+      target: Object(R.oneOf)(["_blank", "_self", "_parent", "_top"]),
+      size: Object(R.oneOf)(["xs", "sm", "md", "lg", "xl"]),
+      shape: Object(R.oneOf)(["rounded", "circle", "capsule"])
     };
     var F = { xs: "32px", sm: "38px", md: "44px", lg: "50px", xl: "56px" },
-      H = { rounded: "2px", circle: "100%" },
+      H = { rounded: "2px", circle: "100%", capsule: "1000px" },
       Y = function(e) {
         var r = e.children,
           t = e.id,
           n = void 0 === t ? void 0 : t,
           a = e.className;
-        return R(
+        return W(
           "svg",
           {
             id: n,
@@ -1477,10 +1470,10 @@ module.exports = (function(e) {
           c = void 0 === i ? "#ffffff" : i,
           o = e.width,
           s = void 0 === o ? 1 : o;
-        return R(
+        return W(
           Y,
           { id: t, className: a },
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "0",
             x2: "100%",
@@ -1488,7 +1481,7 @@ module.exports = (function(e) {
             stroke: c,
             strokeWidth: s
           }),
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "100%",
             x2: "100%",
@@ -1507,10 +1500,10 @@ module.exports = (function(e) {
           c = void 0 === i ? "#ffffff" : i,
           o = e.width,
           s = void 0 === o ? 1 : o;
-        return R(
+        return W(
           Y,
           { id: t, className: a },
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "0",
             x2: "100%",
@@ -1518,7 +1511,7 @@ module.exports = (function(e) {
             stroke: c,
             strokeWidth: s
           }),
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "50%",
             x2: "100%",
@@ -1526,7 +1519,7 @@ module.exports = (function(e) {
             stroke: c,
             strokeWidth: s
           }),
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "100%",
             x2: "100%",
@@ -1545,10 +1538,10 @@ module.exports = (function(e) {
           c = void 0 === i ? "#ffffff" : i,
           o = e.width,
           s = void 0 === o ? 1 : o;
-        return R(
+        return W(
           Y,
           { id: t, className: a },
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "0",
             x2: "100%",
@@ -1556,7 +1549,7 @@ module.exports = (function(e) {
             stroke: c,
             strokeWidth: s
           }),
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "100%",
             x2: "100%",
@@ -1575,10 +1568,10 @@ module.exports = (function(e) {
           c = void 0 === i ? "#ffffff" : i,
           o = e.width,
           s = void 0 === o ? 1 : o;
-        return R(
+        return W(
           Y,
           { id: t, className: a },
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "50%",
             x2: "100%",
@@ -1586,7 +1579,7 @@ module.exports = (function(e) {
             stroke: c,
             strokeWidth: s
           }),
-          R("line", {
+          W("line", {
             x1: "0",
             y1: "50%",
             x2: "100%",
@@ -1604,10 +1597,10 @@ module.exports = (function(e) {
           i = e.colour,
           c = void 0 === i ? "#ffffff" : i,
           o = e.width;
-        return R(
+        return W(
           Y,
           { id: t, className: a },
-          R("line", {
+          W("line", {
             x1: "50%",
             y1: "0",
             x2: "50%",
@@ -1626,7 +1619,7 @@ module.exports = (function(e) {
           c = e.fill,
           o = void 0 === c ? "#000" : c,
           s = e.onClick;
-        return R(
+        return W(
           "svg",
           {
             id: n,
@@ -1636,7 +1629,7 @@ module.exports = (function(e) {
             enableBackground: "new 0 0 300 285"
           },
           r,
-          R("path", {
+          W("path", {
             d:
               "M300 92c.1-2.5-.1-4.8-.8-6.9-.6-2-1.6-3.7-2.9-5-.6-.6-1.3-1.1-2.1-1.5l.4.2c-22.6-12.8-45.2-25.6-67.9-38.4l-.2-.1c-.1 0-.2-.1-.2-.1l-.2-.1c-.1 0-.2-.1-.2-.1-.1 0-.2-.1-.4-.1h-.1c-.2-.1-.3-.1-.5-.1h-.5l-.5-.1-35.4 25.2-1.8-28.9h-.1l-52.2-34h-.4l-.3-.2-.3-.2c-.1-.1-.2-.1-.4-.2-.1-.1-.2-.1-.4-.2-.1-.1-.3-.1-.5-.2l-.2-.1c-.1 0-.2 0-.4-.1s-.5-.2-.7-.2c-.5-.1-1-.2-1.6-.3h-.4c-.7-.1-1.3-.2-2-.2h-3.5999999999999996c-.2 0-.4 0-.5.1-.2 0-.4 0-.5.1-.2 0-.4 0-.5.1-.2 0-.4.1-.5.1-.2 0-.4.1-.5.1l-.7.1-.5.1h-.2l-.7.2-.7.2-.5.2-.5.2-.5.2c-.1 0-.1 0-.2.1l-.3.1-.4.2-.4.2-.4.2-.4.2-.3.2-.3.2-.3.2-.2.1s-.1 0-.1.1l-.3.2-.3.2c-.1.1-.2.1-.2.2l-.3.2c.1-.5 0-.4-.1-.4l-.2.2-.2.2-.2.2-.2.1c-.1 0-.1.1-.1.1l-.1.1-.1.1-1.9 96.5-101.1-28.9-.2.2-.2.2c-.3.1-.4.2-.4.2l-.2.2c-.1.1-.2.1-.2.2l-.2.2-.2.2c-.2 0-.3.1-.3.1l-.1.1-.1.1-.2.2-.2.2c-.2.2-.2.3-.3.3-.1.1-.2.2-.2.3-.1.1-.2.2-.2.3-.1.1-.2.2-.2.3l-.2.3s0 .1-.1.1l-.2.2c-.1.1-.2.2-.2.3-.1.1-.2.2-.2.3l-.2.3-.3.4c-.1.1-.2.3-.2.4l-.1.1c0 .1-.1.2-.1.2-.1.1-.2.3-.2.4l-.3.6-.3.6c-.1.2-.2.4-.2.5-.1.2-.2.4-.2.6l-.3 1-.3 1c0 .1-.1.2-.1.2l-.2 1.2c0 .3-.1.5-.2.8v.4c-.3.7-.3 1.2-.3 1.6v.9c0 .8.1 1.6.2 2.3l10.4 62.2v-.2c.4 2.4 1.2 4.6 2.5 6.6l38.1 11.9-25.6 22.8c0 .2-.1.4-.1.7v1.4c0 .2.1.4.1.7l14.8 77-.1-.6c.1.8.3 1.5.6 2.3.3.8.7 1.5 1.2 2.2.5.7 1.1 1.3 1.8 2 .7.6 1.5 1.2 2.4 1.6.9.5 1.8.8 2.7 1.1 1 .3 2 .5 3 .6 1 .1 2.1.2 3.2.1l77.1-52.9 26.9 54.9c.6.1 1.3.1 2 .1.8 0 1.6-.1 2.5-.3.9-.1 1.9-.4 2.8-.6 1-.2 2-.5 3-.9 1-.3 2-.7 2.9-1.1 1-.4 1.9-.8 2.7-1.2.9-.4 1.7-.9 2.4-1.4.7-.5 1.3-1 1.9-1.5l11.2-70.9 75.7 11.9c1.7-1.1 3.3-2.5 4.7-4.1 1.4-1.5 2.7-3.2 3.7-5 1-1.7 1.9-3.5 2.4-5.2.5-1.7.8-3.4.6-4.9l-45-44.4 65.5-55.6c1.2-2.8 1.7-5.4 1.8-7.9zm-289.5 55v-.30000000000000004.3zm282.6-68.8l.8.3s.1 0 .1.1c-.4-.2-.7-.3-1.1-.4h.2zm-.9-.2h.2l.3.1c-.4-.1-.8-.2-1.3-.2.3 0 .5 0 .8.1zm-281.8 72v-.1.1zm30 123v-1.5l.1-.7c-.1.6-.2 1.4-.1 2.2z",
             fill: o
@@ -1644,7 +1637,7 @@ module.exports = (function(e) {
         );
       };
     t.d(r, "Button", function() {
-      return U;
+      return q;
     }),
       t.d(r, "Icons", function() {
         return n;
