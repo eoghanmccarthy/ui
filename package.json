@@ -1,7 +1,7 @@
 {
   "name": "@eoghanmccarthy/ui",
   "private": false,
-  "version": "1.0.52",
+  "version": "1.0.54",
   "description": "ui",
   "keywords": [
     "react",
@@ -20,9 +20,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/eoghanmccarthy/ui/issues"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "homepage": "https://github.com/eoghanmccarthy/ui#readme",
   "peerDependencies": {
