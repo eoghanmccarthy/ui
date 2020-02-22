@@ -7,7 +7,7 @@ import styles from "./styles";
 
 import buttonBase from "../buttonBase";
 
-const sizes = {
+const minHeight = {
   xs: "32px",
   sm: "38px",
   md: "44px",
@@ -15,8 +15,8 @@ const sizes = {
   xl: "56px"
 };
 
-const shapes = {
-  rounded: "8px",
+const borderRadius = {
+  rounded: "2px",
   circle: "100%"
 };
 
@@ -47,14 +47,10 @@ const Button = forwardRef(
         className={cx("ui-button", className)}
         css={css`
         ${styles}
-          min-width: ${shape === "circle" && sizes[size]};
-          min-height: ${sizes[size]};
-          padding: 0 ${shape === "rounded" ? "1em" : "0"};
-          color: ${variant === "text" ? color : "#ffffff"};
-          background-color: ${variant === "text" ? "transparent" : color}; 
-          border-width: ${variant === "text" ? "0" : "1px"};
-          border-color: ${color};
-          border-radius: ${shapes[shape]};
+          min-width: ${shape === "circle" && minHeight[size]};
+          min-height: ${minHeight[size]};
+          padding: 0 ${shape === "rounded" ? "0.75em" : "0"};
+          border-radius: ${borderRadius[shape]};
           &:focus {
             box-shadow: 0 0 0 3px white;
           }

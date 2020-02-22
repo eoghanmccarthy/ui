@@ -10,7 +10,10 @@ export default css`
   border-style: solid;
   outline: none;
   overflow: hidden;
-  transition: all 0.25s ease;
+  transition: all 0.25s;
   user-select: none;
   cursor: pointer;
+  &:[disabled] {
+    cursor: not-allowed;
+  }
 `;
