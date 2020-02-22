@@ -8,9 +8,11 @@ import styles from "./styles";
 import buttonBase from "../buttonBase";
 
 const sizes = {
-  sm: "36px",
-  md: "42px",
-  lg: "48px"
+  xs: "32px",
+  sm: "38px",
+  md: "44px",
+  lg: "50px",
+  xl: "56px"
 };
 
 const shapes = {
@@ -53,6 +55,9 @@ const Button = forwardRef(
           border-width: ${variant === "text" ? "0" : "1px"};
           border-color: ${color};
           border-radius: ${shapes[shape]};
+          &:focus {
+            box-shadow: 0 0 0 3px white;
+          }
         `}
         {...rest}
       >
@@ -67,7 +72,7 @@ export default buttonBase(Button);
 Button.propTypes = {
   href: string,
   target: oneOf(["_blank", "_self", "_parent", "_top"]),
-  size: oneOf(["sm", "md", "lg"]),
+  size: oneOf(["xs", "sm", "md", "lg", "xl"]),
   shape: oneOf(["rounded", "circle"]),
   variant: oneOf(["contained", "outlined", "text"]),
   color: string.isRequired
