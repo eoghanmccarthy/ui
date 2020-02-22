@@ -2,4 +2,4 @@
 
 UI component library.
 
-`npm install --save eoghandotio-ui`
+`npm install --save @eoghanmccarthy/ui`
