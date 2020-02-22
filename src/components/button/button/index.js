@@ -7,19 +7,6 @@ import styles from "./styles";
 
 import buttonBase from "../buttonBase";
 
-const minHeight = {
-  xs: "32px",
-  sm: "38px",
-  md: "44px",
-  lg: "50px",
-  xl: "56px"
-};
-
-const borderRadius = {
-  rounded: "2px",
-  circle: "100%"
-};
-
 const Button = forwardRef(
   (
     {
@@ -72,4 +59,17 @@ Button.propTypes = {
   shape: oneOf(["rounded", "circle"]),
   variant: oneOf(["contained", "outlined", "text"]),
   color: string.isRequired
+};
+
+const minHeight = {
+  xs: "32px",
+  sm: "38px",
+  md: "44px",
+  lg: "50px",
+  xl: "56px"
+};
+
+const borderRadius = {
+  rounded: "2px",
+  circle: "100%"
 };
