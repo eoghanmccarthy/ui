@@ -1,16 +1,17 @@
-import React from 'react';
-import { string, bool, oneOf, func } from 'prop-types';
+import React from "react";
+import { string, bool, oneOf, func } from "prop-types";
 
-import baseProps from 'components/baseProps';
+import baseProps from "components/baseProps";
+import baseStyles from "./styles";
 
 const n = () => null;
 
 const buttonBase = Component => {
-  const BaseComponent = props => {
+  const ButtonBase = props => {
     const {
-      role = 'button',
-      type = 'button',
-      tabIndex = '0',
+      role = "button",
+      type = "button",
+      tabIndex = "0",
       disabled = false,
       onClick = n,
       ...rest
@@ -22,21 +23,22 @@ const buttonBase = Component => {
         type={type}
         tabIndex={tabIndex}
         disabled={disabled}
+        css={baseStyles}
         onClick={onClick}
         {...rest}
       />
     );
   };
 
-  BaseComponent.propTypes = {
+  ButtonBase.propTypes = {
     role: string,
-    type: oneOf(['button', 'submit', 'reset']),
+    type: oneOf(["button", "submit", "reset"]),
     tabIndex: string,
     disabled: bool,
     onClick: func
   };
 
-  return baseProps(BaseComponent);
+  return baseProps(ButtonBase);
 };
 
 export default buttonBase;

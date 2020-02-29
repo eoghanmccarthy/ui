@@ -3,7 +3,6 @@ import { string, oneOf } from "prop-types";
 import { css } from "@emotion/core";
 import cx from "classnames";
 
-import styles from "./styles";
 import buttonBase from "../buttonBase";
 
 const Button = forwardRef(
@@ -13,7 +12,7 @@ const Button = forwardRef(
       className,
       disabled,
       href = "",
-      target,
+      target = "_blank",
       size = "md",
       shape = "circle",
       ...rest
@@ -30,7 +29,6 @@ const Button = forwardRef(
         disabled={disabled}
         className={cx("ui-button", className)}
         css={css`
-        ${styles}
           min-width: ${shape === "circle" && minHeight[size]};
           min-height: ${minHeight[size]};
           padding: 0 ${shape === "circle" ? "0" : "0.75em"};

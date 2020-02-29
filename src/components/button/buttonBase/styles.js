@@ -1,6 +1,6 @@
 import { css } from "@emotion/core";
 
-export default css`
+const baseStyles = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,3 +17,5 @@ export default css`
     cursor: not-allowed;
   }
 `;
+
+export default baseStyles;
