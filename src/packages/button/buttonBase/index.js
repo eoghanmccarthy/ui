@@ -1,7 +1,7 @@
 import React from "react";
 import { string, bool, oneOf, func } from "prop-types";
 
-import baseProps from "components/baseProps";
+import baseProps from "packages/baseProps";
 import baseStyles from "./styles";
 
 const n = () => null;
