@@ -10,7 +10,7 @@ module.exports = {
   resolve: {
     alias: {
       src: path.resolve(__dirname, "src/"),
-      packages: path.resolve(__dirname, "src/packages")
+      packages: path.resolve(__dirname, "src/packages/")
     },
     extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
