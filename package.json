@@ -1,7 +1,7 @@
 {
   "name": "@eoghanmccarthy/ui",
   "private": false,
-  "version": "1.3.0",
+  "version": "1.3.2",
   "description": "ui",
   "keywords": [
     "react",
@@ -15,9 +15,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eoghanmccarthy/ui.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "author": "eoghan mccarthy",
   "license": "MIT",
@@ -53,7 +50,7 @@
     "@babel/preset-typescript": "^7.1.0",
     "babel-loader": "^8.0.0-beta.4",
     "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^5.0.1",
+    "copy-webpack-plugin": "^5.1.1",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^1.19.1",
     "source-map-loader": "^0.2.4",
