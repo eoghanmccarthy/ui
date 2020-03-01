@@ -1,3 +1,3 @@
-export { Button } from "./button";
-export { Dialog } from "./dialog";
-export { ErrorBoundary } from "./errorBoundary";
+export { Button } from "packages/button";
+export { Dialog } from "packages/dialog";
+export { ErrorBoundary } from "packages/errorBoundary";
