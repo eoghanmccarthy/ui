@@ -2,26 +2,12 @@ import React, { Component } from "react";
 
 import styles from "./styles";
 
-import Error from "components/error/Error";
-
-interface Props {
-  location?: string;
-}
-
-interface State {
-  hasError: boolean;
-}
-
-export default class ErrorBoundary extends Component<Props, State> {
-  static defaultProps: Props = {
-    location: ""
-  };
-
-  state: Readonly<State> = {
+export default class ErrorBoundary extends Component {
+  state = {
     hasError: false
   };
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -36,7 +22,7 @@ export default class ErrorBoundary extends Component<Props, State> {
     if (hasError) {
       return (
         <section css={styles}>
-          <Error message={"Wasn't me."} />
+          <span>something wrong.</span>
         </section>
       );
     }

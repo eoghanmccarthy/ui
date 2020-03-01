@@ -1,6 +1,6 @@
 import { css } from "@emotion/core";
 
-export default () => css`
+const styles = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,3 +11,5 @@ export default () => css`
   background-color: transparent;
   transition: all 0.25s ease;
 `;
+
+export default styles;
