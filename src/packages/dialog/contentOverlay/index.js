@@ -1,12 +1,9 @@
-import React, { Fragment } from "react";
-import { createPortal } from "react-dom";
+import React from "react";
 import { func } from "prop-types";
 import { useTransition, animated } from "react-spring";
 import cx from "classnames";
 
 import styles from "./styles.js";
-
-const rootNode = document.getElementById("root");
 
 const n = () => null;
 
@@ -24,16 +21,12 @@ const ContentOverlay = ({ isVisible, onDestroy = n }) => {
 
   return transition.map(({ item, key, props }) =>
     item ? (
-      <Fragment key={key}>
-        {createPortal(
-          <animated.div
-            css={styles}
-            style={props}
-            className={cx("ui-content-overlay")}
-          />,
-          rootNode
-        )}
-      </Fragment>
+      <animated.div
+        key={key}
+        css={styles}
+        style={props}
+        className={cx("ui-content-overlay")}
+      />
     ) : null
   );
 };
