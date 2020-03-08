@@ -7,6 +7,7 @@ const baseStyles = css`
   align-items: center;
   padding: 0;
   margin: 0;
+  border-width: 0;
   border-style: solid;
   outline: none;
   overflow: hidden;
