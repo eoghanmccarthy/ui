@@ -13,7 +13,7 @@ const Button = forwardRef(
       disabled,
       href = "",
       target = "_blank",
-      size = "md",
+      size = 36,
       shape = "circle",
       ...rest
     },
@@ -29,8 +29,9 @@ const Button = forwardRef(
         disabled={disabled}
         className={cx("ui-button", className)}
         css={css`
-          min-width: ${shape === "circle" && minHeight[size]};
-          min-height: ${minHeight[size]};
+          background-color: transparent;
+          min-width: ${shape === "circle" && `${size}px`};
+          min-height: ${size}px;
           padding: 0 ${shape === "circle" ? "0" : "0.75em"};
           border-radius: ${borderRadius[shape]};
           &:focus {
@@ -50,16 +51,8 @@ export default buttonBase(Button);
 Button.propTypes = {
   href: string,
   target: oneOf(["_blank", "_self", "_parent", "_top"]),
-  size: oneOf(["xs", "sm", "md", "lg", "xl"]),
+  size: oneOf([24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72]),
   shape: oneOf(["rounded", "circle", "capsule"])
-};
-
-const minHeight = {
-  xs: "32px",
-  sm: "38px",
-  md: "44px",
-  lg: "50px",
-  xl: "56px"
 };
 
 const borderRadius = {
