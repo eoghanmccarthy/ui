@@ -1,5 +1,5 @@
 import React, { Fragment, forwardRef, useState, useEffect } from "react";
-import { func } from "prop-types";
+import { func, bool } from "prop-types";
 import { useTransition, animated, config } from "react-spring";
 import FocusLock from "react-focus-lock";
 import cx from "classnames";
@@ -12,7 +12,15 @@ import DialogBackground from "../dialogBackground";
 
 const Dialog = forwardRef(
   (
-    { children, className, isVisible, closeDialog, onDestroy, ...rest },
+    {
+      children,
+      className,
+      isVisible,
+      closeDialog,
+      onDestroy,
+      immediate = false,
+      ...rest
+    },
     forwardedRef
   ) => {
     const [showOverlay, toggleOverlay] = useState(false);
@@ -22,6 +30,7 @@ const Dialog = forwardRef(
     }, [isVisible]);
 
     const transition = useTransition(isVisible, null, {
+      immediate: immediate,
       from: { opacity: 0, transform: "translateY(+70px)" },
       enter: { opacity: 1, transform: "translateY(0px)" },
       leave: { opacity: 0, transform: "translateY(+50px)" },
@@ -55,7 +64,11 @@ const Dialog = forwardRef(
             </Fragment>
           ) : null
         )}
-        <ContentOverlay isVisible={showOverlay} onDestroy={onDestroy} />
+        <ContentOverlay
+          isVisible={showOverlay}
+          onDestroy={onDestroy}
+          immediate={immediate}
+        />
       </Fragment>
     );
   }
@@ -64,5 +77,5 @@ const Dialog = forwardRef(
 export default dialogBase(Dialog);
 
 Dialog.propTypes = {
-  onDestroy: func
+  immediate: bool
 };

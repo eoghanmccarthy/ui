@@ -7,8 +7,9 @@ import styles from "./styles.js";
 
 const n = () => null;
 
-const ContentOverlay = ({ isVisible, onDestroy = n }) => {
+const ContentOverlay = ({ isVisible, onDestroy = n, immediate }) => {
   const transition = useTransition(isVisible, null, {
+    immediate: immediate,
     from: { backgroundColor: "rgba(0,0,0,0)" },
     enter: { backgroundColor: "rgba(0,0,0,.22)" },
     leave: { backgroundColor: "rgba(0,0,0,0)" },

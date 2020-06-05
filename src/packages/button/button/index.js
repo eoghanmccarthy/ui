@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { string, oneOf } from "prop-types";
+import { bool, string, oneOf } from "prop-types";
 import { css } from "@emotion/core";
 import cx from "classnames";
 
@@ -13,7 +13,7 @@ const Button = forwardRef(
       disabled,
       href = "",
       target = "_blank",
-      size = 36,
+      size,
       shape = "circle",
       ...rest
     },
@@ -29,9 +29,10 @@ const Button = forwardRef(
         disabled={disabled}
         className={cx("ui-button", className)}
         css={css`
-          min-width: ${(shape === "square" || shape === "circle") &&
+          min-width: ${size &&
+            (shape === "square" || shape === "circle") &&
             `${size}px`};
-          min-height: ${size}px;
+          min-height: ${size && `${size}px`};
           padding: 0 ${shape === "circle" ? "0" : "0.75em"};
           border-radius: ${borderRadius[shape]};
           &:focus {
