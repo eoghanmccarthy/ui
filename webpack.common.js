@@ -17,7 +17,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(t|j)sx?$/,
+        test: /\.(js|jsx)$/,
         include: path.resolve(__dirname, "src"),
         exclude: /node_modules/,
         use: [
