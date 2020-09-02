@@ -1,7 +1,7 @@
 import React from "react";
 import { string, bool, oneOf, func } from "prop-types";
 
-import baseProps from "packages/baseProps";
+import baseProps from "../../baseProps";
 
 const n = () => null;
 
