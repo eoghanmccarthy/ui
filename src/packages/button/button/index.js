@@ -1,22 +1,12 @@
 import React, { forwardRef } from "react";
-import { bool, string, oneOf } from "prop-types";
-import { css } from "@emotion/core";
+import { string, oneOf } from "prop-types";
 import cx from "classnames";
 
 import buttonBase from "../buttonBase";
 
 const Button = forwardRef(
   (
-    {
-      children,
-      className,
-      disabled,
-      href = "",
-      target = "_blank",
-      size,
-      shape = "circle",
-      ...rest
-    },
+    { children, className, disabled, href = "", target = "_blank", ...rest },
     forwardedRef
   ) => {
     const Element = href ? "a" : "button";
@@ -27,18 +17,7 @@ const Button = forwardRef(
         {...(href && { href: href })}
         {...(href && { target: target })}
         disabled={disabled}
-        className={cx("ui-button", className)}
-        css={css`
-          min-width: ${size &&
-            (shape === "square" || shape === "circle") &&
-            `${size}px`};
-          min-height: ${size && `${size}px`};
-          padding: 0 ${shape === "circle" ? "0" : "0.75em"};
-          border-radius: ${borderRadius[shape]};
-          &:focus {
-            box-shadow: 0 0 0 3px white;
-          }
-        `}
+        className={cx("ui-button", { disabled: disabled }, className)}
         {...rest}
       >
         {children}
@@ -51,14 +30,5 @@ export default buttonBase(Button);
 
 Button.propTypes = {
   href: string,
-  target: oneOf(["_blank", "_self", "_parent", "_top"]),
-  size: oneOf([24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72]),
-  shape: oneOf(["square", "rounded", "circle", "capsule"])
-};
-
-const borderRadius = {
-  square: "0",
-  rounded: "2px",
-  circle: "100%",
-  capsule: "1000px"
+  target: oneOf(["_blank", "_self", "_parent", "_top"])
 };
