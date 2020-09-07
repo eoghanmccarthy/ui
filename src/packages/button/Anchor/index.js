@@ -2,33 +2,30 @@ import React, { forwardRef } from "react";
 import { string, oneOf } from "prop-types";
 import cx from "classnames";
 
-import buttonBase from "../buttonBase";
+import ButtonBase from "../ButtonBase";
 
-const Button = forwardRef(
+const Anchor = forwardRef(
   (
-    { children, className, disabled, href = "", target = "_blank", ...rest },
+    { children, className, href = null, target = "_blank", ...rest },
     forwardedRef
   ) => {
-    const Element = href ? "a" : "button";
-
     return (
-      <Element
+      <a
         ref={forwardedRef}
         {...(href && { href: href })}
         {...(href && { target: target })}
-        disabled={disabled}
-        className={cx("ui-button", { disabled: disabled }, className)}
+        className={cx("ui-anchor", { placeholder: !href }, className)}
         {...rest}
       >
         {children}
-      </Element>
+      </a>
     );
   }
 );
 
-export default buttonBase(Button);
+export default ButtonBase(Anchor);
 
-Button.propTypes = {
+Anchor.propTypes = {
   href: string,
   target: oneOf(["_blank", "_self", "_parent", "_top"])
 };

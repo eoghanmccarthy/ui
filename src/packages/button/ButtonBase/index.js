@@ -5,13 +5,12 @@ import baseProps from "../../baseProps";
 
 const n = () => null;
 
-const buttonBase = Component => {
+const buttonWrapper = Component => {
   const ButtonBase = props => {
     const {
       role = "button",
       type = "button",
       tabIndex = "0",
-      disabled = false,
       onClick = n,
       ...rest
     } = props;
@@ -21,7 +20,6 @@ const buttonBase = Component => {
         role={role}
         type={type}
         tabIndex={tabIndex}
-        disabled={disabled}
         onClick={onClick}
         {...rest}
       />
@@ -32,11 +30,10 @@ const buttonBase = Component => {
     role: string,
     type: oneOf(["button", "submit", "reset"]),
     tabIndex: string,
-    disabled: bool,
     onClick: func
   };
 
   return baseProps(ButtonBase);
 };
 
-export default buttonBase;
+export default buttonWrapper;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor component matches snapshot 1`] = `
+<a
+  className="ui-anchor instance-class"
+  data-testid="instance-test-id"
+  href="http://google.com"
+  onClick={[Function]}
+  role="button"
+  tabIndex="0"
+  target="_blank"
+  type="button"
+>
+  Click
+</a>
+`;
