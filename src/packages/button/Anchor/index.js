@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { string, oneOf } from "prop-types";
 import cx from "classnames";
 
-import ButtonBase from "../ButtonBase";
+import baseProps from "../../baseProps";
 
 const Anchor = forwardRef(
   (
@@ -23,7 +23,7 @@ const Anchor = forwardRef(
   }
 );
 
-export default ButtonBase(Anchor);
+export default baseProps(Anchor);
 
 Anchor.propTypes = {
   href: string,

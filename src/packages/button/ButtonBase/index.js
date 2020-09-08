@@ -11,6 +11,7 @@ const buttonWrapper = Component => {
       role = "button",
       type = "button",
       tabIndex = "0",
+      disabled = false,
       onClick = n,
       ...rest
     } = props;
@@ -20,6 +21,7 @@ const buttonWrapper = Component => {
         role={role}
         type={type}
         tabIndex={tabIndex}
+        disabled={disabled}
         onClick={onClick}
         {...rest}
       />
@@ -30,6 +32,7 @@ const buttonWrapper = Component => {
     role: string,
     type: oneOf(["button", "submit", "reset"]),
     tabIndex: string,
+    disabled: bool,
     onClick: func
   };
 

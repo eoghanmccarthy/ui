@@ -1,11 +1,10 @@
 import React, { forwardRef } from "react";
-import { bool } from "prop-types";
 import cx from "classnames";
 
 import ButtonBase from "../ButtonBase";
 
 const Button = forwardRef(
-  ({ children, className, disabled = false, ...rest }, forwardedRef) => {
+  ({ children, className, disabled, ...rest }, forwardedRef) => {
     return (
       <button
         ref={forwardedRef}
@@ -20,7 +19,3 @@ const Button = forwardRef(
 );
 
 export default ButtonBase(Button);
-
-Button.propTypes = {
-  disabled: bool
-};
