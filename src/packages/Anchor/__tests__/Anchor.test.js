@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 import renderer from "react-test-renderer";
 
-import Anchor from "../index";
+import Anchor from "../Anchor.js";
 
 describe("Anchor component", () => {
   afterEach(cleanup);

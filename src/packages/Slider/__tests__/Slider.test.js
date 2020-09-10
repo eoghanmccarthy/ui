@@ -5,13 +5,13 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 import renderer from "react-test-renderer";
 
-import Button from "../index";
+import Slider from "../Slider.js";
 
 describe("Button component", () => {
   afterEach(cleanup);
 
   const MockComponent = props => (
-    <Button testId={"instance-test-id"} {...props} />
+    <Slider testId={"instance-test-id"} {...props} />
   );
 
   it("renders without crashing", () => {
@@ -26,20 +26,16 @@ describe("Button component", () => {
 
   it("renders with correct css classes", () => {
     const { getByTestId } = render(
-      <MockComponent className={"instance-class"}>Click</MockComponent>
+      <MockComponent className={"instance-class"} size={48} shape={"circle"}>
+        Click
+      </MockComponent>
     );
     expect(getByTestId("instance-test-id")).toHaveClass(
       "ui-button",
-      "instance-class"
+      "instance-class",
+      "size-48",
+      "circle"
     );
-  });
-
-  it("renders correctly when disabled", () => {
-    const { getByTestId } = render(
-      <MockComponent disabled>Click</MockComponent>
-    );
-    expect(getByTestId("instance-test-id")).toBeDisabled();
-    expect(getByTestId("instance-test-id")).toHaveClass("disabled");
   });
 
   it("renders and onClick event is called", () => {

@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { string, oneOf } from "prop-types";
 import cx from "classnames";
 
-import baseProps from "../../baseProps";
+import baseProps from "../../utils/baseProps";
 
 const Anchor = forwardRef(
   (

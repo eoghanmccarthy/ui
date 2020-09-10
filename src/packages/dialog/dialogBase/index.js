@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { createPortal } from "react-dom";
 import { bool, func } from "prop-types";
 
-import baseProps from "packages/baseProps";
+import baseProps from "../../../utils/baseProps";
 
 const rootNode = document.getElementById("root");
 
