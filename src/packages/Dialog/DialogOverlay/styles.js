@@ -1,12 +1,12 @@
 import { css } from "@emotion/core";
 
-const overlayStyles = css`
+const styles = ({ zIndex }) => css`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 9999;
+  z-index: ${zIndex};
   top: 0;
   right: 0;
   bottom: 0;
@@ -15,4 +15,4 @@ const overlayStyles = css`
   height: 100%;
 `;
 
-export default overlayStyles;
+export default styles;

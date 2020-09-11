@@ -1,9 +1,9 @@
 import { css } from "@emotion/core";
 
-const dialogStyles = css`
+const styles = ({ maxWidth }) => css`
   position: relative;
   width: 100%;
-  max-width: 720px;
+  max-width: ${maxWidth}px;
   max-height: calc(100vh - 140px);
   padding: 0 30px;
   background: transparent;
@@ -25,4 +25,4 @@ const dialogStyles = css`
   }
 `;
 
-export default dialogStyles;
+export default styles;

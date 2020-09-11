@@ -1,6 +1,4 @@
-import Anchor from "./packages/Anchor/Anchor.js";
-import Button from "./packages/Button/Button.js";
-import ErrorBoundary from "./packages/ErrorBoundary/ErrorBoundary.js";
-
-export { Anchor, Button, ErrorBoundary };
-export { Dialog } from "packages/dialog";
+export { Anchor } from "./packages/Anchor";
+export { Button } from "./packages/Button";
+export { Dialog, useDialog } from "./packages/Dialog";
+export { ErrorBoundary } from "./packages/ErrorBoundary";
